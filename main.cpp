@@ -26,17 +26,23 @@ void displayDeque(deque<Car> carDeque, int size) {
 int main() {
     // constant to store starting # of cars
     int INITIAL = 2;
-    int 
+    // constants for probabilities
+
     srand(time(0));
 
     // create a deque to store cars
-    deque<Car> carDeque;
+    array<deque<Car>, 4> carDequeArray;
 
-    // add the INITIAL constant number of cars to deque 
-    for (int i = 0; i < INITIAL; i++) {
-        Car tempCar;
-        carDeque.push_back(tempCar);
+    // Loop through each deque in the array
+    for (int d = 0; d < carDequeArray.size(); d++) {
+
+        // add the INITIAL constant number of cars to that particular deque 
+        for (int i = 0; i < INITIAL; i++) {
+            Car tempCar;
+            carDequeArray[d].push_back(tempCar);
+        }
     }
+    
     // display initial queue
     cout << "Initial queue:" << endl;
     displayDeque(carDeque, carDeque.size());
