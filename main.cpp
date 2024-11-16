@@ -1,3 +1,4 @@
+// Ethan Dilk | Lab 33 Toll Plaza | COMSC 210
 #include "Car-1.h"
 #include <iostream>
 #include <random>
@@ -25,6 +26,7 @@ void displayDeque(deque<Car> carDeque, int size) {
 int main() {
     // constant to store starting # of cars
     int INITIAL = 2;
+    int 
     srand(time(0));
 
     // create a deque to store cars
@@ -70,7 +72,7 @@ int main() {
         // display all elements in deque
         displayDeque(carDeque, carDeque.size());
         cout << endl;
-        
+
         counter++;
     }
 
