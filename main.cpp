@@ -24,7 +24,7 @@ void displayDeque(deque<Car> carDeque, int size) {
 }
 
 int main() {
-    // constant to store starting # of cars
+    // constant to store starting # of cars & # of lanes 
     int INITIAL = 2;
     // constants for probabilities
 
@@ -32,6 +32,8 @@ int main() {
 
     // create a deque to store cars
     array<deque<Car>, 4> carDequeArray;
+
+    cout << "Intial queue:" << endl;
 
     // Loop through each deque in the array
     for (int d = 0; d < carDequeArray.size(); d++) {
@@ -41,11 +43,10 @@ int main() {
             Car tempCar;
             carDequeArray[d].push_back(tempCar);
         }
+        // display that lane after all cars have been initially added
+        cout << "Lane " << d + 1 << ":" << endl;
+        displayDeque(carDequeArray[d], carDequeArray[d].size());
     }
-    
-    // display initial queue
-    cout << "Initial queue:" << endl;
-    displayDeque(carDeque, carDeque.size());
     
     // initialize counter to track operations
     int counter = 0;
