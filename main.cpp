@@ -8,7 +8,7 @@ using namespace std;
 void displayDeque(deque<Car>, int);
 
 void displayDeque(deque<Car> carDeque, int size) {
-
+    // if the deque is empty - print out empty
     if (carDeque.empty() == true) {
         cout << "   ";
         cout << "Empty";
@@ -38,7 +38,8 @@ int main() {
     // display initial queue
     cout << "Initial queue:" << endl;
     displayDeque(carDeque, carDeque.size());
-
+    
+    // initialize counter to track operations
     int counter = 0;
 
     while (carDeque.empty() == false) {
@@ -55,15 +56,19 @@ int main() {
         }
         // else --> car joined the lane
         else {
+            // create new car
             Car tempCar;
             cout << "Time: " << counter + 1 << " Operation: ";
             cout << "Joined lane: ";
             tempCar.print();
+            // push back a new car to the back of the line
             carDeque.push_back(tempCar);
         }
+        cout << "Queue: " << endl;
+        displayDeque(carDeque, carDeque.size());
+        cout << endl;
+        counter++;
     }
-
-
 
     return 0;
 }
