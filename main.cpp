@@ -51,7 +51,9 @@ int main() {
         if (lineOperation <= 55) {
             cout << "Time: " << counter + 1 << " Operation: ";
             cout << "Car paid: ";
+            // print info on the first car in the deque that is leaving
             carDeque.front().print();
+            // pop the first car in line
             carDeque.pop_front();
         }
         // else --> car joined the lane
@@ -65,8 +67,10 @@ int main() {
             carDeque.push_back(tempCar);
         }
         cout << "Queue: " << endl;
+        // display all elements in deque
         displayDeque(carDeque, carDeque.size());
         cout << endl;
+        
         counter++;
     }
 
