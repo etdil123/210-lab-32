@@ -26,7 +26,11 @@ void displayDeque(deque<Car> carDeque, int size) {
 int main() {
     // constant to store starting # of cars & # of lanes 
     int INITIAL = 2;
+    int SIMULATIONS = 5;
     // constants for probabilities
+    int CAR_LEAVES = 46;
+    int CAR_JOINS = 39;
+    int CAR_SHIFTS = 15;
 
     srand(time(0));
 
@@ -51,37 +55,52 @@ int main() {
     // initialize counter to track operations
     int counter = 0;
 
-    while (carDeque.empty() == false) {
+    // run 20 time period simulations 
+    for (int sim = 0; sim < SIMULATIONS; sim++) {
+        cout << "Time: " << sim + 1 << endl;
 
-        // create random operation between 0 and 100
-        int lineOperation = (rand() % 100);
+        
 
-        // if random number less than or equal to 55 --> car leaves toll both
-        if (lineOperation <= 55) {
-            cout << "Time: " << counter + 1 << " Operation: ";
-            cout << "Car paid: ";
-            // print info on the first car in the deque that is leaving
-            carDeque.front().print();
-            // pop the first car in line
-            carDeque.pop_front();
-        }
-        // else --> car joined the lane
-        else {
-            // create new car
-            Car tempCar;
-            cout << "Time: " << counter + 1 << " Operation: ";
-            cout << "Joined lane: ";
-            tempCar.print();
-            // push back a new car to the back of the line
-            carDeque.push_back(tempCar);
-        }
-        cout << "Queue: " << endl;
-        // display all elements in deque
-        displayDeque(carDeque, carDeque.size());
-        cout << endl;
 
-        counter++;
+
+
     }
+
+
+
+
+
+    // while (carDeque.empty() == false) {
+
+    //     // create random operation between 0 and 100
+    //     int lineOperation = (rand() % 100);
+
+    //     // if random number less than or equal to 55 --> car leaves toll both
+    //     if (lineOperation <= 55) {
+    //         cout << "Time: " << counter + 1 << " Operation: ";
+    //         cout << "Car paid: ";
+    //         // print info on the first car in the deque that is leaving
+    //         carDeque.front().print();
+    //         // pop the first car in line
+    //         carDeque.pop_front();
+    //     }
+    //     // else --> car joined the lane
+    //     else {
+    //         // create new car
+    //         Car tempCar;
+    //         cout << "Time: " << counter + 1 << " Operation: ";
+    //         cout << "Joined lane: ";
+    //         tempCar.print();
+    //         // push back a new car to the back of the line
+    //         carDeque.push_back(tempCar);
+    //     }
+    //     cout << "Queue: " << endl;
+    //     // display all elements in deque
+    //     displayDeque(carDeque, carDeque.size());
+    //     cout << endl;
+
+    //     counter++;
+    // }
 
     return 0;
 }
