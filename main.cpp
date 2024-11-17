@@ -8,6 +8,7 @@ using namespace std;
 
 void displayDeque(deque<Car>, int);
 
+// displayDeque returns no value - used to loop through a deque of Car objects and utilize built-in print method
 void displayDeque(deque<Car> carDeque, int size) {
     // if the deque is empty - print out empty
     if (carDeque.empty() == true) {
@@ -26,7 +27,7 @@ void displayDeque(deque<Car> carDeque, int size) {
 int main() {
     // constant to store starting # of cars, simulations, and lanes
     int INITIAL = 2;
-    int SIMULATIONS = 5;
+    int SIMULATIONS = 20;
     int LANES = 4;
 
     // constants for probabilities
@@ -81,10 +82,10 @@ int main() {
                 }
                 else 
                     // display info on action
-                    cout << "Lane: " << d + 1 << " No action: ";
+                    cout << "Lane: " << d + 1 << " No action: " << endl;
 
             }
-            // else deque has cars - need to randomly select between car leaving, joining, or switching
+            // else deque DOES have cars - need to randomly select between car leaving, joining, or switching and perform action
             else {
                 // create random operation between 0 and 100
                 int lineOperation = (rand() % (100 + 1));
@@ -99,7 +100,7 @@ int main() {
                     carDequeArray[d].pop_front();
                 }
                 // else if lineOperation is between 46 and 85 --> car joins the queue 
-                else if (lineOperation > CAR_LEAVES && lineOperation <= (CAR_JOINS + CAR_LEAVES)) {
+                else if (lineOperation > CAR_LEAVES && lineOperation < (CAR_JOINS + CAR_LEAVES)) {
                     // create new car
                     Car tempCar;
                     // display info on action
@@ -128,8 +129,7 @@ int main() {
                     carDequeArray[d].pop_back();
 
                 }
-            }
-            
+            }    
         }
 
         // All actions have happened in that specific time period 
@@ -139,7 +139,6 @@ int main() {
             cout << "Lane " << d + 1 << " Queue:" << endl;
             displayDeque(carDequeArray[d], carDequeArray[d].size());
         }
-
     }
 
     return 0;
