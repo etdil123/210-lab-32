@@ -31,6 +31,7 @@ int main() {
     int CAR_LEAVES = 46;
     int CAR_JOINS = 39;
     int CAR_SHIFTS = 15;
+    int EMPTY = 50;
 
     srand(time(0));
 
@@ -59,7 +60,29 @@ int main() {
     for (int sim = 0; sim < SIMULATIONS; sim++) {
         cout << "Time: " << sim + 1 << endl;
 
-        
+         // Loop through each deque in the array - so an action can occur
+        for (int d = 0; d < carDequeArray.size(); d++) {
+            
+            // create random operation between 0 and 100
+            int lineOperation = (rand() % 100);
+
+            // if lineOperation less than or equal to 46 --> car at head leaves 
+            if (lineOperation <= CAR_LEAVES) {
+                // display info on action
+                cout << "Lane: " << d + 1 << "Car Paid: ";
+                // print info on first car leaving 
+                carDequeArray[d].front().print();
+                // pop the first car in line
+                carDequeArray[d].pop_front();
+            }
+            // else if lineOperation is between 47 and 85
+            else if (lineOperation > CAR_LEAVES && lineOperation <= (CAR_JOINS + CAR_LEAVES)) {
+                
+            }
+            
+
+
+        }
 
 
 
