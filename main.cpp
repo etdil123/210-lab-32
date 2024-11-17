@@ -64,10 +64,10 @@ int main() {
         for (int d = 0; d < carDequeArray.size(); d++) {
             
             // create random operation between 0 and 100
-            int lineOperation = (rand() % 100);
+            int lineOperation = (rand() % (100 + 1));
 
-            // if lineOperation less than or equal to 46 --> car at head leaves 
-            if (lineOperation <= CAR_LEAVES) {
+            // if lineOperation less than 46 --> car at head leaves 
+            if (lineOperation < CAR_LEAVES) {
                 // display info on action
                 cout << "Lane: " << d + 1 << "Car Paid: ";
                 // print info on first car leaving 
@@ -75,9 +75,29 @@ int main() {
                 // pop the first car in line
                 carDequeArray[d].pop_front();
             }
-            // else if lineOperation is between 47 and 85
+            // else if lineOperation is between 46 and 85 --> car joins the queue 
             else if (lineOperation > CAR_LEAVES && lineOperation <= (CAR_JOINS + CAR_LEAVES)) {
-                
+                // create new car
+                Car tempCar;
+                // display info on action
+                cout << "Lane: " << d + 1 << "Car Joined: ";
+                tempCar.print();
+                // push back a new car to the back of the line
+                carDequeArray[d].push_back(tempCar);         
+            }
+            // else the rear car will shift lanes to a random lane
+            else {
+                // display info on action
+                cout << "Lane: " << d + 1 << "Car Switched: ";
+                // print info on the final car in the deque that will be switching 
+                carDequeArray[d].back().print();
+
+                // get lane that car will switch to 
+                do {
+                    int randomLane
+                }
+
+
             }
             
 
@@ -88,9 +108,6 @@ int main() {
 
 
     }
-
-
-
 
 
     // while (carDeque.empty() == false) {
